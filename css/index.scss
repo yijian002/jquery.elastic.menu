@@ -24,10 +24,6 @@
         @include prefixed(flex, 1);
         padding: 0 10px;
         cursor: pointer;
-        &.hot {
-            background: url(../images/hot.png) no-repeat;
-            background-position: right 0;
-        }
         &.current {
             color: #da3641;
         }
