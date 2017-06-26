@@ -1,5 +1,6 @@
 # jquery.elastic.menu
-一个简单的弹性菜单
+
+A simple elastic menu.
 
 ### Code examples
 ``` js
@@ -13,3 +14,6 @@ $('#some-element').elasticMenu({
     time: 300
 });
 ```
+
+### Example
+example.html

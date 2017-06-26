@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <title> Example </title>
+    <meta charset="utf-8" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+</head>
+
+<body>
+    <div class="menu">
+        <span>menu 1</span><span class="current">menu 2</span><span>menu 3</span><span>menu 4</span><span>menu 5</span><span>menu 6</span><span>menu 7</span>
+        <em></em>
+    </div>
+</body>
+
+</html>
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="./jquery.elastic.menu.min.js"></script>
+<script type="text/javascript">
+$('.menu').elasticMenu({
+    item: 'span',
+    class_current: 'current',
+    elastic: 'em',
+    is_inner_width: false,
+    offset: 10,
+    time: 300
+});
+</script>
