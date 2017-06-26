@@ -1,9 +1,10 @@
 /*
-    jquery.simple.tabs.js
+    jquery.elastic.menu.js
     @author Vic 
     https://github.com/yijian002/jquery.elastic.menu
 */
 
+;
 (function($) {
 
     'use strict';
@@ -13,9 +14,9 @@
             item: 'li',
             class_current: 'current',
             elastic: '.elastic',
-            is_inner_width: true,
-            offset: 0,
-            time: 300
+            is_inner_width: true, // innerWidth() || width()
+            offset: 0, // Offset left (px)
+            time: 300 // Animate time (ms)
         };
 
         var $container = null,

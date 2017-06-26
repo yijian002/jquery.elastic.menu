@@ -1,5 +1,5 @@
 # jquery.elastic.menu
-一个jquery弹性菜单插件
+一个简单的弹性菜单
 
 ### Code examples
 ``` js
