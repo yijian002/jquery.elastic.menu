@@ -16,7 +16,9 @@
             elastic: '.elastic',
             is_inner_width: true, // innerWidth() || width()
             offset: 0, // Offset left (px)
-            time: 300 // Animate time (ms)
+            time: 300, // Animate time (ms)
+            event: 'click',
+            event_func: function($item) {}
         };
 
         var $container = null,
@@ -30,17 +32,23 @@
             return p.is_inner_width ? $cont.innerWidth() : $cont.width();
         }
 
+        function getOffsetLeft() {
+            var $currented = $container.find('.' + p.class_current),
+                isCurrented = $currented.length;
+            
+            return isCurrented ? $currented.position().left + p.offset : 0;
+        }
+
         function lineAnimate() {
             var $currented = $container.find('.' + p.class_current),
                 isCurrented = $currented.length,
-                itemW = isCurrented ? getWidth($currented) : 0,
-                defLeftW = isCurrented ? $currented.position().left + p.offset : 0;
+                itemW = isCurrented ? getWidth($currented) : 0;
 
             if (isCurrented) { // Init the line status
                 $elastic
                     .show()
                     .animate({
-                        left: defLeftW,
+                        left: getOffsetLeft(),
                         width: itemW
                     }, p.time);
             }
@@ -65,13 +73,21 @@
                         $elastic
                             .stop()
                             .animate({
-                                left: defLeftW,
+                                left: getOffsetLeft(),
                                 width: itemW
                             }, p.time);
                     } else {
                         $elastic.hide();
                     }
                 });
+        }
+
+        function bindEvent() {
+            $container.find(p.item).on(p.event, function() {
+                $(this).addClass(p.class_current).siblings().removeClass(p.class_current);
+
+                p.event_func($(this));
+            });
         }
 
         function init() {
@@ -88,6 +104,7 @@
             }
 
             lineAnimate();
+            bindEvent();
         }
 
         this.each(function() {
